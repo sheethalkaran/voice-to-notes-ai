@@ -41,8 +41,9 @@ st.set_page_config(
 st.markdown("""
     <style>
     :root {
-        --primary-color: #667eea;
-        --secondary-color: #764ba2;
+        --primary-color: #001f3f;
+        --secondary-color: #0066cc;
+        --accent-color: #667eea;
         --success-color: #28a745;
         --error-color: #dc3545;
         --warning-color: #ffc107;
@@ -50,303 +51,335 @@ st.markdown("""
     }
     
     .main {
-        background-color: #f8f9fa;
-        color: #212529;
+        background-color: #f5f7fa;
+        color: #1a1a1a;
     }
     
-    /* Tab styling */
+    /* Tab styling - matching header */
     .stTabs [data-baseweb="tab-list"] button {
         background-color: #ffffff;
-        color: #212529;
-        border: 2px solid #e9ecef;
-        border-radius: 8px;
-        font-weight: 600;
-        padding: 10px 20px;
+        color: #001f3f;
+        border: 2px solid #e0e6f2;
+        border-radius: 10px;
+        font-weight: 700;
+        padding: 12px 24px;
         transition: all 0.3s ease;
+        letter-spacing: 0.3px;
+        font-size: 14px;
+        text-transform: uppercase;
     }
     
     .stTabs [data-baseweb="tab-list"] button:hover {
-        border-color: #667eea;
-        color: #667eea;
-        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+        border-color: #0066cc;
+        color: #0066cc;
+        box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+        transform: translateY(-2px);
     }
     
     .stTabs [aria-selected="true"] {
-        background-color: #667eea;
-        color: white;
-        border-color: #667eea;
+        background: linear-gradient(135deg, #001f3f 0%, #003d7a 100%) !important;
+        color: white !important;
+        border-color: #0066cc !important;
+        box-shadow: 0 4px 12px rgba(0, 102, 204, 0.4) !important;
+        font-weight: 800 !important;
     }
     
-    /* Headings */
+    .stTabs [aria-selected="true"] span {
+        color: white !important;
+        font-weight: 800 !important;
+    }
+    
+    .stTabs [aria-selected="true"] div {
+        color: white !important;
+        font-weight: 800 !important;
+    }
+    
+    .stTabs [aria-selected="true"] p {
+        color: white !important;
+        font-weight: 800 !important;
+    }
+    
+    button[role="tab"][aria-selected="true"] {
+        color: white !important;
+        font-weight: 800 !important;
+    }
+    
+    button[role="tab"][aria-selected="true"] * {
+        color: white !important;
+        font-weight: 800 !important;
+    }
+    
+    /* Headings - matching header style */
     h1 {
-        color: #667eea;
+        color: #001f3f;
         text-align: center;
-        font-weight: 700;
-        margin-bottom: 30px;
+        font-weight: 800;
+        font-size: 32px;
+        margin-bottom: 24px;
+        letter-spacing: 0.5px;
+        font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
         text-shadow: none;
     }
     
     h2 {
-        color: #764ba2;
-        border-bottom: 3px solid #667eea;
-        padding-bottom: 10px;
-        font-weight: 600;
+        color: #001f3f;
+        border-bottom: 3px solid #0066cc;
+        padding-bottom: 12px;
+        font-weight: 800;
+        font-size: 22px;
+        letter-spacing: 0.3px;
+        margin-top: 20px;
+        margin-bottom: 16px;
     }
     
     h3 {
-        color: #667eea;
-        font-weight: 600;
+        color: #0066cc;
+        font-weight: 700;
+        font-size: 16px;
+        letter-spacing: 0.2px;
     }
     
     /* Text visibility */
     p, .stText, label {
-        color: #212529 !important;
+        color: #1a1a1a !important;
+        font-weight: 500;
+        font-size: 14px;
+    }
+    
+    /* Content sections */
+    .section-box {
+        background-color: #ffffff;
+        border: 2px solid #e0e6f2;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 16px 0;
+        box-shadow: 0 2px 8px rgba(0, 31, 63, 0.08);
+    }
+    
+    .section-box:hover {
+        box-shadow: 0 4px 16px rgba(0, 31, 63, 0.12);
+        border-color: #0066cc;
+    }
+    
+    /* Transcript box - prominent border */
+    .transcript-box {
+        background: linear-gradient(135deg, #f0f4ff 0%, #f8f9fb 100%);
+        border: 3px solid #0066cc;
+        border-radius: 12px;
+        padding: 24px;
+        margin: 16px 0;
+        font-family: 'Segoe UI', 'Courier New', monospace;
+        font-size: 15px;
+        line-height: 2;
+        color: #001f3f;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        box-shadow: 0 4px 16px rgba(0, 102, 204, 0.15);
+        letter-spacing: 0.3px;
         font-weight: 500;
     }
     
     /* Metric cards */
     .metric-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #001f3f 0%, #0066cc 100%);
         padding: 20px;
         border-radius: 10px;
         color: white;
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        box-shadow: 0 4px 12px rgba(0, 31, 63, 0.2);
+        border: 2px solid #0066cc;
     }
     
     /* Input fields */
-    .stTextInput, .stTextArea, .stSelectbox, .stSlider {
+    .stTextInput, .stTextArea, .stSelectbox, .stSlider, .stFileUploader {
         background-color: #ffffff;
-        border: 2px solid #e9ecef;
+        border: 2px solid #e0e6f2 !important;
         border-radius: 8px;
     }
     
-    .stTextInput:focus, .stTextArea:focus {
-        border-color: #667eea;
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    .stTextInput input, .stTextArea textarea {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border: 2px solid #e0e6f2 !important;
+        font-size: 14px !important;
     }
     
-    /* Text area text visibility */
     .stTextArea textarea {
-        color: #212529 !important;
-        font-size: 16px !important;
-        font-family: monospace !important;
+        font-family: 'Courier New', monospace !important;
+        line-height: 1.8 !important;
     }
     
     .stTextArea label {
-        color: #212529 !important;
-        font-weight: 600;
+        color: #001f3f !important;
+        font-weight: 700;
+        font-size: 14px;
     }
     
-    /* Button styling */
+    /* Button styling - header gradient - ONLY for action buttons */
     .stButton > button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #001f3f 0%, #0066cc 100%) !important;
         color: white !important;
-        border: none;
-        border-radius: 8px;
-        font-weight: 600;
-        padding: 10px 20px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        border: none !important;
+        border-radius: 8px !important;
+        font-weight: 800 !important;
+        padding: 12px 24px !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 12px rgba(0, 31, 63, 0.2) !important;
+        letter-spacing: 0.3px !important;
+        font-size: 14px !important;
     }
     
     .stButton > button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(102, 126, 234, 0.3);
+        transform: translateY(-3px) !important;
+        box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4) !important;
+    }
+    
+    .stButton > button div, .stButton > button span, .stButton > button p {
+        color: white !important;
+        font-weight: 800 !important;
+    }
+    
+    /* Exclude file uploader, close buttons, and 3dots menu */
+    [data-testid="fileUploadDropzone"] button,
+    [data-testid="stFileUploadDropzone"] button,
+    .stFileUploader button {
+        background: auto !important;
+        color: auto !important;
+        font-weight: auto !important;
+    }
+    
+    [data-testid="stFileUploadDropzone"] button div,
+    [data-testid="stFileUploadDropzone"] button span {
+        color: auto !important;
+        font-weight: auto !important;
     }
     
     /* Expander */
     .streamlit-expander {
-        border: 2px solid #e9ecef;
+        border: 2px solid #e0e6f2;
         border-radius: 8px;
+        background-color: #ffffff;
     }
     
     /* Metric styling */
     .stMetric {
-        background-color: #f8f9fa;
-        padding: 15px;
+        background-color: #ffffff;
+        padding: 16px;
         border-radius: 8px;
-        border-left: 4px solid #667eea;
+        border: 2px solid #e0e6f2;
+        border-left: 4px solid #0066cc;
+        box-shadow: 0 2px 6px rgba(0, 31, 63, 0.08);
     }
     
     .stMetric label {
-        color: #667eea !important;
-        font-weight: 600;
+        color: #001f3f !important;
+        font-weight: 700;
+        font-size: 12px;
     }
     
     .stMetric [data-testid="metric-container"] {
         background: transparent;
     }
     
-    /* Sidebar improvements */
-    .stSidebar {
-        background: linear-gradient(180deg, #f0f2f6 0%, #ffffff 100%);
-        border-right: 2px solid #e8eaed;
-    }
-    
-    .stSidebar h2 {
-        color: #667eea;
-    }
-    
-    .stSidebar h3 {
-        color: #667eea;
-        font-weight: 700;
-        margin-top: 15px;
-        margin-bottom: 8px;
-    }
-    
-    .stSidebar strong {
-        color: #333333;
-        font-size: 14px;
-        font-weight: 600;
-        display: block;
-        margin: 12px 0 8px 0;
-    }
-    
-    .stSidebar .stExpander {
-        background: #ffffff;
-        border: 1px solid #e8eaed;
-        border-radius: 8px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-    
     /* Progress bar */
     .stProgress > div > div {
-        background-color: #667eea;
-    }
-    
-    /* Transcript area styling */
-    .stTextArea textarea {
-        color: #000000 !important;
-        font-family: 'Courier New', monospace;
-        font-size: 14px;
-        line-height: 1.6;
-        background-color: #f8f8f8 !important;
-        border: 1px solid #e0e0e0 !important;
-    }
-    
-    .stTextArea textarea::placeholder {
-        color: #999999;
-    }
-    
-    /* Transcript heading */
-    .stTabs h3 {
-        color: #000000 !important;
-        margin-bottom: 5px !important;
-        margin-top: 15px !important;
+        background: linear-gradient(90deg, #001f3f 0%, #0066cc 100%);
     }
     
     /* Sidebar improvements */
     .stSidebar {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-right: 3px solid #5568d3;
+        background: linear-gradient(135deg, #001f3f 0%, #0066cc 100%);
+        border-right: 3px solid #0066cc;
+    }
+    
+    .stSidebar h2, .stSidebar h3 {
+        color: #ffffff !important;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
     }
     
     .stSidebar h2 {
-        color: #000a2e !important;
-        font-weight: 800;
-        font-size: 22px;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        margin-bottom: 2px;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-size: 18px;
+        margin-bottom: 4px;
     }
     
     .stSidebar h3 {
-        color: #000a2e !important;
-        font-weight: 700;
-        margin-top: 12px;
-        margin-bottom: 6px;
         font-size: 14px;
-        letter-spacing: 0.3px;
+        margin-top: 12px;
+        margin-bottom: 8px;
     }
     
     .stSidebar [data-testid="stMarkdownContainer"] h2,
     .stSidebar [data-testid="stMarkdownContainer"] h3 {
-        color: #000a2e !important;
+        color: #ffffff !important;
     }
     
     .stSidebar strong {
         color: #ffffff;
         font-size: 13px;
-        font-weight: 600;
+        font-weight: 700;
         display: block;
-        margin: 3px 0 -2px 0;
+        margin: 8px 0 6px 0;
         letter-spacing: 0.2px;
         line-height: 1;
-        padding: 0;
     }
     
     .stSidebar p {
-        margin: 0 !important;
-        padding: 0 !important;
-        line-height: 1;
+        color: #ffffff !important;
+        margin: 4px 0 !important;
+        line-height: 1.6;
     }
     
     .stSidebar [data-testid="stMarkdownContainer"] {
-        margin: 0 !important;
-        padding: 0 !important;
-        line-height: 0.8;
-    }
-    
-    .stSidebar [data-testid="stMarkdownContainer"] p {
-        margin: 0 !important;
-        padding: 0 !important;
-        line-height: 0.8;
+        color: #ffffff;
+        line-height: 1.6;
     }
     
     .stSidebar .stSelectbox {
-        margin-top: -12px !important;
-        margin-bottom: 8px !important;
+        margin-top: -8px !important;
+        margin-bottom: 12px !important;
     }
     
     .stSidebar .stSelectbox select {
-        background-color: rgba(255, 255, 255, 0.95) !important;
-        color: #333333 !important;
-        border: 3px solid #667eea !important;
-        border-radius: 8px !important;
-        font-weight: 500;
+        background-color: rgba(255, 255, 255, 0.98) !important;
+        color: #001f3f !important;
+        border: 2px solid #ffffff !important;
+        border-radius: 6px !important;
+        font-weight: 600;
         font-size: 13px;
-        box-shadow: 0 2px 6px rgba(102, 126, 234, 0.2) !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
     }
     
     .stSidebar .stSelectbox select:hover {
-        border-color: #764ba2 !important;
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
-    }
-    
-    .stSidebar .stSelectbox select:focus {
-        border-color: #764ba2 !important;
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5) !important;
+        border-color: #ffffff !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.25) !important;
     }
     
     .stSidebar hr {
-        border-color: rgba(255, 255, 255, 0.3);
-        margin: 10px 0;
+        border-color: rgba(255, 255, 255, 0.4);
+        margin: 12px 0;
     }
     
     .stSidebar .stExpander {
-        background: rgba(255, 255, 255, 0.95);
-        border: 2px solid rgba(255, 255, 255, 0.5);
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        background: rgba(255, 255, 255, 0.96) !important;
+        border: 2px solid rgba(255, 255, 255, 0.8) !important;
+        border-radius: 8px !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
         margin-top: 8px;
     }
     
     .stSidebar .stExpander [data-testid="stExpanderDetails"] {
-        background: rgba(255, 255, 255, 0.98);
-        border-top: 1px solid rgba(0,0,0,0.1);
-    }
-    
-    .stSidebar .stExpander {
-        background: rgba(255, 255, 255, 0.95) !important;
-        border: 2px solid rgba(255, 255, 255, 0.6) !important;
-        border-radius: 8px !important;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        border-top: 1px solid rgba(0, 102, 204, 0.2) !important;
     }
     
     .stSidebar [data-testid="stExpander"] button {
-        color: #000a2e !important;
+        color: #001f3f !important;
         font-weight: 700 !important;
+    }
+    
+    .stSidebar [data-testid="stExpander"] button span {
+        color: #001f3f !important;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -552,14 +585,7 @@ with tab1:
     # ALWAYS show transcript if it exists (persistent display)
     if st.session_state.transcript:
         st.markdown("### 📋 Your Transcript", unsafe_allow_html=True)
-        st.markdown('<div style="margin-top: -10px;"></div>', unsafe_allow_html=True)
-        st.text_area(
-            "Full transcript:",
-            value=st.session_state.transcript,
-            height=300,
-            disabled=True,
-            label_visibility="collapsed"
-        )
+        st.markdown(f'<div class="transcript-box">{st.session_state.transcript}</div>', unsafe_allow_html=True)
         
         # Download and stats
         col1, col2, col3, col4 = st.columns(4)
@@ -591,9 +617,9 @@ with tab2:
     st.markdown("## 📚 AI-Generated Study Materials")
     
     if not st.session_state.transcript:
-        st.markdown('<div class="info-box">ℹ️ Please transcribe an audio file first in the Transcribe tab</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-box" style="background-color: #e3f2fd; border-left: 4px solid #0066cc;"><strong style="color: #0066cc;">ℹ️ Please transcribe an audio file first in the Transcribe tab</strong></div>', unsafe_allow_html=True)
     else:
-        st.success(f"✅ Ready to process {StringHelpers.count_words(st.session_state.transcript)} words")
+        st.markdown(f'<div class="section-box" style="border-left: 4px solid #28a745;"><strong style="color: #28a745;">✅ Ready to process {StringHelpers.count_words(st.session_state.transcript)} words</strong></div>', unsafe_allow_html=True)
         
         col1, col2, col3 = st.columns(3)
         
@@ -671,7 +697,7 @@ with tab2:
         if st.session_state.get("show_summary") and st.session_state.summary:
             st.markdown("---")
             st.markdown("### 📝 Generated Summary")
-            st.markdown(st.session_state.summary)
+            st.markdown(f'<div class="section-box">{st.session_state.summary}</div>', unsafe_allow_html=True)
             
             col1, col2, col3 = st.columns(3)
             with col1:
@@ -761,7 +787,7 @@ with tab3:
     st.markdown("## ❓ Interactive Quiz")
     
     if not st.session_state.transcript:
-        st.markdown('<div class="info-box">ℹ️ Please transcribe an audio file first</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-box" style="background-color: #e3f2fd; border-left: 4px solid #0066cc;"><strong style="color: #0066cc;">ℹ️ Please transcribe an audio file first</strong></div>', unsafe_allow_html=True)
     else:
         if not st.session_state.quiz:
             col1, col2 = st.columns([2, 1])
@@ -885,7 +911,7 @@ with tab4:
     st.markdown("## 📇 Flashcard Study Dashboard")
     
     if not st.session_state.transcript:
-        st.markdown('<div class="info-box">ℹ️ Please transcribe an audio file first</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-box" style="background-color: #e3f2fd; border-left: 4px solid #0066cc;"><strong style="color: #0066cc;">ℹ️ Please transcribe an audio file first</strong></div>', unsafe_allow_html=True)
     else:
         if not st.session_state.flashcards:
             col1, col2 = st.columns([2, 1])
@@ -1055,11 +1081,7 @@ with tab5:
     # Transcript section
     if st.session_state.transcript:
         with st.expander("📄 **Transcript** - Full text of your lecture", expanded=False):
-            st.markdown(f"""
-            <div style="background-color: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #667eea;">
-                <p style="color: #000000; font-size: 14px; font-family: monospace; white-space: pre-wrap; line-height: 1.6;">{st.session_state.transcript}</p>
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown(f'<div class="transcript-box">{st.session_state.transcript}</div>', unsafe_allow_html=True)
             
             col1, col2, col3 = st.columns(3)
             with col1:
@@ -1079,7 +1101,7 @@ with tab5:
     # Summary section
     if st.session_state.summary:
         with st.expander("📝 **Summary** - AI-generated overview", expanded=False):
-            st.markdown(st.session_state.summary)
+            st.markdown(f'<div class="section-box">{st.session_state.summary}</div>', unsafe_allow_html=True)
             
             col1, col2 = st.columns(2)
             with col1:
@@ -1175,22 +1197,22 @@ CONCEPTS
             st.session_state.show_summary = False
             st.session_state.show_concepts = False
             st.session_state.show_tone = False
-            st.success("✅ All session data cleared!")
+            st.markdown('<div class="section-box" style="background-color: #d4edda; border-left: 4px solid #28a745;"><strong style="color: #28a745;">✅ All session data cleared!</strong></div>', unsafe_allow_html=True)
             st.rerun()
     
     with col3:
         if st.button("ℹ️ About This App", use_container_width=True):
-            st.info("""
-            **Lecture Voice-to-Notes Generator**
-            
-            Advanced lecture processing system featuring:
-            - Speech-to-Text transcription with AI
-            - Automated content generation and summarization
-            - Concept extraction and analysis
-            - Interactive quiz and flashcard creation
-            
+            st.markdown("""
+            <div class="section-box">
+            <strong style="color: #001f3f; font-size: 16px;">Lecture Voice-to-Notes Generator</strong><br><br>
+            Advanced lecture processing system featuring:<br>
+            • Speech-to-Text transcription with AI<br>
+            • Automated content generation and summarization<br>
+            • Concept extraction and analysis<br>
+            • Interactive quiz and flashcard creation<br><br>
             Transform your lectures into comprehensive, organized study materials.
-            """)
+            </div>
+            """, unsafe_allow_html=True)
 
 # Footer
 st.markdown("---")
