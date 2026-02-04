@@ -23,15 +23,6 @@ This application streamlines the study preparation process by automatically conv
 - **Database**: Firebase (optional)
 
 
-## Supported Audio Formats
-- MP3
-- WAV
-- M4A
-- OGG
-- WEBM
-- FLAC
-
-
 ## Troubleshooting
 ### Audio Upload Issues
 - Ensure file size is under 25MB
