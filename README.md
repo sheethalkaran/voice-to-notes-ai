@@ -1,72 +1,91 @@
-# Lecture Voice-to-Notes Generator
+# Voice-to-Notes Generator
 
-Convert lecture audio recordings into comprehensive study materials using AI-powered transcription and content generation.
+Convert lecture audio recordings into comprehensive study materials using advanced AI technology.
 
-[Live Demo](https://huggingface.co/spaces/sheethalk/voice-to-notes-ai) | Try it online
+## Overview
 
-## Features
+An intelligent application that transforms audio lectures into multiple formats including transcripts, summaries, quizzes, flashcards, and key concepts. Built with Streamlit and powered by leading AI models, it enables students and educators to enhance learning efficiency.
 
-- **Audio Transcription**: Convert lectures to text with multi-language support (MP3, WAV, M4A, OGG, WebM, FLAC)
-- **Content Summarization**: AI-generated summaries with configurable tone and reading level
-- **Concept Extraction**: Automatically identify and organize key concepts from lectures
-- **Quiz Generation**: Create multiple-choice quizzes at varying difficulty levels
-- **Flashcard Creation**: Generate study flashcards for active learning
-- **Tone Analysis**: Evaluate and describe lecture tone characteristics
+## Key Features
+
+- **Audio Transcription**: Convert audio files to text with support for multiple formats and languages
+- **Content Summarization**: Generate concise, AI-powered summaries from transcripts
+- **Quiz Generation**: Create automatically generated multiple-choice quizzes
+- **Flashcard Creation**: Build digital study flashcards from lecture content
+- **Concept Extraction**: Identify and extract key concepts automatically
 
 ## Tech Stack
 
 - **Frontend**: Streamlit
-- **AI Services**: Groq (primary), Google Gemini (fallback)
-- **Speech Recognition**: OpenAI Whisper API
-- **Audio Processing**: librosa, pydub
-- **Language**: Python 3.9+
+- **AI Services**: Groq API, Google Gemini, and OpenAI
+- **Audio Processing**: OpenAI Whisper
+- **Audio Libraries**: librosa, pydub
+- **Backend**: Python 3.9+
+
+## Installation
+
+1. Clone the repository
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate  # On Windows
+   ```
+3. Install dependencies: `pip install -r requirements.txt`
+4. Configure API keys in `.env` file
+5. Run: `streamlit run app.py` or use `./app_startup.sh`
 
 
 ## Usage
 
-1. **Upload Audio**: Select an audio file (max 25MB)
-2. **Choose Settings**: 
-   - Select language and output language
-   - Configure tone and reading level preferences
-   - Select difficulty for quizzes
-3. **Generate Materials**:
-   - Transcribe lecture
-   - Generate summary, concepts, quiz, and flashcards
-4. **Download Results**: Export all generated content
+1. Upload an audio file (MP3, WAV, M4A formats supported)
+2. Select desired output formats
+3. Wait for processing to complete
+4. Download generated study materials
 
+## Troubleshooting
 
-## Project Structure
+### Audio Upload Issues
+- Ensure file size is under 25MB
+- Check file format is supported
+- Verify audio quality is clear
+### API Errors
+- Confirm API keys are correctly set in .env
+- Check internet connection
+- Verify API quota has not been exceeded
 
-```
-├── app.py                 # Main Streamlit application
-├── config/
-│   ├── settings.py       # Configuration and constants
-├── services/
-│   ├── ai.py             # AI content generation
-│   ├── speech_to_text.py # Audio transcription
-│   └── audio_processor.py # Audio handling
-├── utils/
-│   ├── validators.py     # Input validation
-│   ├── formatters.py     # Output formatting
-│   └── helpers.py        # Utility functions
-└── requirements.txt      # Dependencies
-```
-
-## Requirements
-
-- API keys for Groq and/or OpenAI/Google Gemini
-- Minimum 4GB RAM for optimal performance
-- Stable internet connection for API calls
+### Transcription Quality
+- Use high-quality audio recordings
+- Minimize background noise
+- Ensure clear speaker audio
 
 ## Performance
 
-- Transcription time: ~1 minute per 10 minutes of audio
-- Content generation: 30-60 seconds depending on lecture length and complexity
+- Transcription time varies based on audio length
+- AI generation depends on content complexity
+- Larger files may take longer to process
 
 ## Security
 
-- API keys stored locally in `.env` (not version controlled)
-- No permanent data storage in cloud
-- Audio files processed temporarily and deleted after session
+- API keys are stored locally in .env (not committed to git)
+- .gitignore prevents credential exposure
+- No data is permanently stored in the cloud
+
+## Limitations
+
+- Free API tiers have rate limits
+- Maximum audio file size depends on service provider
+- Processing time increases with content length
+
+## Deployment
+
+This application is deployed on [Hugging Face Spaces](https://huggingface.co/spaces/sheethalk/voice-to-notes-ai) for easy access without local installation.
+
+## Support & Credits
+
+Built with:
+- [Streamlit](https://streamlit.io/) - Web framework
+- [Groq API](https://groq.com/) - Fast AI inference
+- [Google Gemini](https://ai.google.dev/) - Advanced language model
+- [OpenAI Whisper](https://openai.com/research/whisper) - Audio transcription
 
 
