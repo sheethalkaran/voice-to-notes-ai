@@ -11,23 +11,6 @@ class Settings:
     # Google Gemini API
     GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", "")
     
-    # Firebase Configuration
-    FIREBASE_CONFIG = {
-        "type": os.getenv("FIREBASE_TYPE", "service_account"),
-        "project_id": os.getenv("FIREBASE_PROJECT_ID", ""),
-        "private_key_id": os.getenv("FIREBASE_PRIVATE_KEY_ID", ""),
-        "private_key": os.getenv("FIREBASE_PRIVATE_KEY", "").replace("\\n", "\n"),
-        "client_email": os.getenv("FIREBASE_CLIENT_EMAIL", ""),
-        "client_id": os.getenv("FIREBASE_CLIENT_ID", ""),
-        "auth_uri": os.getenv("FIREBASE_AUTH_URI", "https://accounts.google.com/o/oauth2/auth"),
-        "token_uri": os.getenv("FIREBASE_TOKEN_URI", "https://oauth2.googleapis.com/token"),
-        "auth_provider_x509_cert_url": os.getenv("FIREBASE_AUTH_PROVIDER_X509_CERT_URL", "https://www.googleapis.com/oauth2/v1/certs"),
-        "client_x509_cert_url": os.getenv("FIREBASE_CLIENT_X509_CERT_URL", ""),
-    }
-    
-    FIREBASE_DATABASE_URL: str = os.getenv("FIREBASE_DATABASE_URL", "")
-    FIREBASE_STORAGE_BUCKET: str = os.getenv("FIREBASE_STORAGE_BUCKET", "")
-    
     # Application Settings
     MAX_UPLOAD_SIZE: int = 25 * 1024 * 1024  # 25MB
     SUPPORTED_AUDIO_FORMATS: tuple = ("mp3", "wav", "m4a", "ogg", "webm", "flac")
@@ -68,7 +51,7 @@ class Settings:
     @staticmethod
     def validate_config() -> bool:
         """Validate that all required settings are configured"""
-        required_keys = ["GOOGLE_API_KEY", "FIREBASE_DATABASE_URL"]
+        required_keys = ["GOOGLE_API_KEY"]
         settings = Settings()
         
         for key in required_keys:
