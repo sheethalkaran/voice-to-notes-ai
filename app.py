@@ -425,7 +425,7 @@ init_session_state()
 col1, col2, col3 = st.columns([1, 3, 1])
 with col2:
     st.markdown("""
-        <div style="margin-top: -30px; margin-bottom: 0px;">
+        <div style="margin-top: 20px; margin-bottom: 0px;">
             <h1 style="color: #001f3f; margin: 0; padding: 0; font-size: 36px; font-weight: 800; letter-spacing: 0.5px; text-align: center; font-family: 'Segoe UI', 'Helvetica Neue', sans-serif; text-transform: uppercase; tracking: 2px;">🎙️ Lecture Voice-to-Notes Generator</h1>
             <h3 style="color: #0066cc; margin-top: 8px; text-align: center; font-weight: 600; font-size: 16px; letter-spacing: 1px; font-style: italic;">Convert Lectures into Study Materials with AI</h3>
         </div>
