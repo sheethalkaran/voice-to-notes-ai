@@ -1,69 +1,72 @@
-# Voice-to-Notes Generator
+# Lecture Voice-to-Notes Generator
 
-A professional application that converts lecture audio recordings into comprehensive study materials using advanced AI technology.
+Convert lecture audio recordings into comprehensive study materials using AI-powered transcription and content generation.
 
-## Overview
+[Live Demo](https://huggingface.co/spaces/sheethalk/voice-to-notes-ai) | Try it online
 
-This application streamlines the study preparation process by automatically converting audio lectures into multiple formats including transcripts, summaries, quizzes, flashcards, and concept extractions. Built with Streamlit and powered by AI services, it enables students and educators to maximize learning efficiency.
+## Features
 
-## Key Features
-
-- **Audio Transcription**: Convert audio files to text with support for multiple formats and languages
-- **Content Summarization**: Generate concise, AI-powered summaries from transcripts
-- **Quiz Generation**: Create automatically generated multiple-choice quizzes
-- **Flashcard Creation**: Build digital study flashcards from lecture content
-- **Concept Extraction**: Identify and extract key concepts automatically
+- **Audio Transcription**: Convert lectures to text with multi-language support (MP3, WAV, M4A, OGG, WebM, FLAC)
+- **Content Summarization**: AI-generated summaries with configurable tone and reading level
+- **Concept Extraction**: Automatically identify and organize key concepts from lectures
+- **Quiz Generation**: Create multiple-choice quizzes at varying difficulty levels
+- **Flashcard Creation**: Generate study flashcards for active learning
+- **Tone Analysis**: Evaluate and describe lecture tone characteristics
 
 ## Tech Stack
 
 - **Frontend**: Streamlit
-- **AI Services**: Groq API or Google Gemini
-- **Audio Processing**: Whisper AI
-- **Backend**: Python 3.9+
-- **Database**: Firebase (optional)
+- **AI Services**: Groq (primary), Google Gemini (fallback)
+- **Speech Recognition**: OpenAI Whisper API
+- **Audio Processing**: librosa, pydub
+- **Language**: Python 3.9+
 
 
-## Troubleshooting
-### Audio Upload Issues
-- Ensure file size is under 25MB
-- Check file format is supported
-- Verify audio quality is clear
-### API Errors
-- Confirm API keys are correctly set in .env
-- Check internet connection
-- Verify API quota has not been exceeded
-### Transcription Quality
-- Use high-quality audio recordings
-- Minimize background noise
-- Ensure clear speaker audio
+## Usage
+
+1. **Upload Audio**: Select an audio file (max 25MB)
+2. **Choose Settings**: 
+   - Select language and output language
+   - Configure tone and reading level preferences
+   - Select difficulty for quizzes
+3. **Generate Materials**:
+   - Transcribe lecture
+   - Generate summary, concepts, quiz, and flashcards
+4. **Download Results**: Export all generated content
 
 
-## Performance Notes
-- Transcription time varies based on audio length
-- AI generation depends on content complexity
-- Larger files may take longer to process
+## Project Structure
+
+```
+├── app.py                 # Main Streamlit application
+├── config/
+│   ├── settings.py       # Configuration and constants
+├── services/
+│   ├── ai.py             # AI content generation
+│   ├── speech_to_text.py # Audio transcription
+│   └── audio_processor.py # Audio handling
+├── utils/
+│   ├── validators.py     # Input validation
+│   ├── formatters.py     # Output formatting
+│   └── helpers.py        # Utility functions
+└── requirements.txt      # Dependencies
+```
+
+## Requirements
+
+- API keys for Groq and/or OpenAI/Google Gemini
+- Minimum 4GB RAM for optimal performance
+- Stable internet connection for API calls
+
+## Performance
+
+- Transcription time: ~1 minute per 10 minutes of audio
+- Content generation: 30-60 seconds depending on lecture length and complexity
 
 ## Security
-- API keys are stored locally in .env (not committed to git)
-- .gitignore prevents credential exposure
-- No data is permanently stored in the cloud
 
-## Limitations
-- Free API tiers have rate limits
-- Maximum audio file size depends on service provider
-- Processing time increases with content length
-
-## Future Enhancements
-- Real-time audio recording
-- Cloud storage integration
-- Batch processing capabilities
-- Export to multiple formats (PDF, DOCX)
-- Collaborative features
-
-## Acknowledgments
-- Groq for fast AI inference
-- Google for Gemini API
-- OpenAI for Whisper technology
-- Streamlit for web framework
+- API keys stored locally in `.env` (not version controlled)
+- No permanent data storage in cloud
+- Audio files processed temporarily and deleted after session
 
 
