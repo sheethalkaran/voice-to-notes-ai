@@ -1,10 +1,6 @@
 # Voice-to-Notes Generator
 
-Convert lecture audio recordings into comprehensive study materials using advanced AI technology.
-
-## Overview
-
-An intelligent application that transforms audio lectures into multiple formats including transcripts, summaries, quizzes, flashcards, and key concepts. Built with Streamlit and powered by leading AI models, it enables students and educators to enhance learning efficiency.
+An application that automatically transforms audio lectures into multiple study formats including transcripts, summaries, quizzes, flashcards, and key concepts using advanced AI technology. Simply upload your audio file and receive professionally formatted study materials instantly.
 
 ## Key Features
 
@@ -64,12 +60,6 @@ An intelligent application that transforms audio lectures into multiple formats 
 - AI generation depends on content complexity
 - Larger files may take longer to process
 
-## Security
-
-- API keys are stored locally in .env (not committed to git)
-- .gitignore prevents credential exposure
-- No data is permanently stored in the cloud
-
 ## Limitations
 
 - Free API tiers have rate limits
@@ -79,13 +69,3 @@ An intelligent application that transforms audio lectures into multiple formats 
 ## Deployment
 
 This application is deployed on [Hugging Face Spaces](https://huggingface.co/spaces/sheethalk/voice-to-notes-ai) for easy access without local installation.
-
-## Support & Credits
-
-Built with:
-- [Streamlit](https://streamlit.io/) - Web framework
-- [Groq API](https://groq.com/) - Fast AI inference
-- [Google Gemini](https://ai.google.dev/) - Advanced language model
-- [OpenAI Whisper](https://openai.com/research/whisper) - Audio transcription
-
-
