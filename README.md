@@ -1,8 +1,5 @@
 ---
 title: Lecture Voice-to-Notes Generator
-emoji: 🎙️
-colorFrom: blue
-colorTo: indigo
 sdk: streamlit
 sdk_version: 1.28.1
 app_file: app.py
