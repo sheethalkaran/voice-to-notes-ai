@@ -24,15 +24,15 @@ class AIService:
                 self.client = Groq(api_key=groq_key)
                 self.provider = "groq"
                 
-                # List of available Groq models (updated regularly)
+                # List of available Groq models (current as of 2025)
                 models_to_try = [
-                    "mixtral-8x7b-32768",      # May be deprecated
-                    "gemma-7b-it",              # Fast, lightweight
-                    "gemma2-9b-it",             # Gemma 2
-                    "llama2-70b-4096",          # Powerful Llama 2
-                    "llama-3-70b-8192",         # Llama 3
+                    "llama-3.3-70b-versatile",  # Latest Llama 3.3 (recommended)
                     "llama-3.1-70b-versatile",  # Llama 3.1 Versatile
                     "llama-3.1-8b-instant",     # Fast Llama 3.1
+                    "llama3-70b-8192",          # Llama 3
+                    "llama3-8b-8192",           # Llama 3 8B
+                    "gemma2-9b-it",             # Gemma 2
+                    "gemma-7b-it",              # Gemma 7B
                 ]
                 
                 model_found = False

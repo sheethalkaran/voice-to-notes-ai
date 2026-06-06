@@ -550,8 +550,11 @@ with tab1:
                 status_text.text("🤖 Transcribing with AI...")
                 progress_bar.progress(60)
                 
+                # Map display language name to ISO code (e.g. 'English' -> 'en')
+                language_code = settings.LANGUAGES.get(selected_language, "en")
+                
                 # Transcribe
-                result = transcribe_audio(wav_path, language=selected_language, use_local=True)
+                result = transcribe_audio(wav_path, language=language_code, use_local=True)
                 
                 if result["success"]:
                     st.session_state.transcript = result["text"]
@@ -1031,7 +1034,7 @@ with tab4:
                 if st.button("💾 Save Deck to Library", use_container_width=True):
                     st.success("✅ Deck saved to library!")
             with col2:
-                if st.button("📊 View All Cards", use_container_width=True):
+                if st.button("📊 View All Cards", use_container_width=True, key="view_all_cards"):
                     st.session_state.show_all_cards = True
             with col3:
                 if st.button("🔄 Regenerate Deck", use_container_width=True):
