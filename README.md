@@ -1,5 +1,5 @@
 ---
-title: Voice To Notes AI
+title: Lecture Voice-to-Notes Generator
 emoji: 🎙️
 colorFrom: blue
 colorTo: indigo
