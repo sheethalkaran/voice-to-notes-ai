@@ -16,8 +16,8 @@ class Settings:
     SUPPORTED_AUDIO_FORMATS: tuple = ("mp3", "wav", "m4a", "ogg", "webm", "flac")
     
     # Streamlit Settings
-    PAGE_TITLE: str = "🎙️ Lecture Voice-to-Notes Generator"
-    PAGE_ICON: str = "📚"
+    PAGE_TITLE: str = "Lecture Voice-to-Notes Generator"
+    PAGE_ICON: str = "🎙️"
     LAYOUT: str = "wide"
     INITIAL_SIDEBAR_STATE: str = "auto"
     
