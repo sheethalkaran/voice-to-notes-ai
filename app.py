@@ -50,7 +50,7 @@ st.markdown("""
     }
     
     .main {
-        background-color: #f5f7fa;
+        background-color: #fff0f5;
         color: #1a1a1a;
     }
     
