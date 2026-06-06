@@ -1,3 +1,14 @@
+---
+title: Voice To Notes AI
+emoji: 🎙️
+colorFrom: blue
+colorTo: indigo
+sdk: streamlit
+sdk_version: 1.28.1
+app_file: app.py
+pinned: false
+---
+
 # Voice-to-Notes Generator
 
 An application that automatically transforms audio lectures into multiple study formats including transcripts, summaries, quizzes, flashcards, and key concepts using advanced AI technology. Simply upload your audio file and receive professionally formatted study materials instantly.
