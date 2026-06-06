@@ -75,5 +75,5 @@ An application that automatically transforms audio lectures into multiple study 
 - Processing time increases with content length
 
 ## Deployment
-
-This application is deployed on [Hugging Face Spaces](https://huggingface.co/spaces/sheethalk/voice-to-notes-ai) for easy access without local installation.
+**Live Demo:** [Voice-to-Notes Generator](https://huggingface.co/spaces/sheethalk/voice-to-notes-ai)   
+Upload lecture recordings and generate structured study materials instantly.
